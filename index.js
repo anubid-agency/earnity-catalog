@@ -1575,10 +1575,10 @@ async function handleCheckoutQuote(request, env, now) {
   const referrerShare = Math.floor((price * businessReferrerBps) / 10000);
   const reserveShare = Math.floor((price * settings.seller_reserve_bps) / 10000);
   const earnityShareRaw = Math.floor((price * settings.earnity_bps) / 10000);
-  // Remainder goes to Earnity.
-  const remainder = price - (refereeShare + referrerShare + reserveShare + earnityShareRaw);
-  const earnityShare = earnityShareRaw + remainder;
-  const totalDeposit = refereeShare + referrerShare + reserveShare + earnityShare;
+  
+  // Deposit is the floored total; leftover shillings go to Earnity.
+  const totalDeposit = Math.floor((price * totalBps) / 10000);
+  const earnityShare = totalDeposit - refereeShare - referrerShare - reserveShare;
 
   return json(
     {
