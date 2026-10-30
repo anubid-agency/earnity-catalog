@@ -12,7 +12,7 @@ const JWKS_URL =
 const ALLOWED_HOST = 'earnityug.com';
 
 /* -------------------- EDIT THESE STARTING VALUES -------------------- */
-const BASIC_MAX_ACTIVE_PRODUCTS = 20;
+const BASIC_MAX_ACTIVE_PRODUCTS = 200;
 const BASIC_MAX_PRICE_UGX = 1_000_000;
 const BASIC_MAX_DELIVERY_DAYS = 14;
 const ABSOLUTE_MAX_PRICE_UGX = 25_000_000;
